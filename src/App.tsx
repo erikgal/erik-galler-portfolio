@@ -14,7 +14,7 @@ function App() {
     const [newComment, setNewComment] = useState<string>('');
 
     useEffect(() => {
-        axios
+        axios //http://localhost:8000/api/view/
             .get('https://erik-galler-portfolio.herokuapp.com/api/view/') // sending data to backend
             .then((response) => {
                 setComments(response.data);
