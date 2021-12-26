@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Typography } from '@mui/material';
 import styled from 'styled-components';
 import './App.css';
 import axios from 'axios';
 import AppBarComponent from './AppBar';
+import profile_picture from './assets/profile_picture.jpg';
+import IntroText from './IntroText';
 
 interface Comment {
     id?: string;
@@ -20,30 +21,18 @@ const Container = styled.div`
     overflow: auto;
 `;
 
-const Bar = styled.div`
-    display: flex;
-    height: 8vh;
-`;
-
-const BarButtons = styled.div`
-    display: flex;
-    flex: 1;
-    flex-direction: row;
-    justify-content: flex-end;
-`;
-
 const Intro = styled.div`
     display: flex;
     height: 70vh;
 `;
 
-const IntroContainer = styled.div`
-    display: flex;
-    width: 60%;
-`;
 const ProfileContainer = styled.div`
     display: flex;
     width: 40%;
+    margin: 20px;
+    justify-content: center;
+    align_items: center
+    paddingleft: 100;
 `;
 
 function App() {
@@ -81,15 +70,11 @@ function App() {
         <Container className="Container">
             <AppBarComponent />
             <Intro>
-                <IntroContainer>
-                    <Typography
-                        textAlign="center"
-                        sx={{ mr: 2, display: { xs: 'none', md: 'flex' }, color: '#ffffff' }}
-                    ></Typography>
-                </IntroContainer>
-                <ProfileContainer></ProfileContainer>
+                <ProfileContainer>
+                    <img src={profile_picture}></img>
+                </ProfileContainer>
+                <IntroText />
             </Intro>
-            <Intro></Intro>
             {/* <header className="App-header">
                 <img src={logo} className="App-logo" alt="logo" />
                 <p>

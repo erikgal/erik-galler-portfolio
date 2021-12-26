@@ -50,12 +50,13 @@ const AppBarComponent = () => {
                                 >
                                     <Typography
                                         textAlign="center"
+                                        fontSize={17.5}
                                         sx={{
                                             ':hover': {
                                                 color: '#08fdd8',
                                             },
                                             color: '#ffffff',
-                                            padding: 1,
+                                            padding: 2,
                                             paddingRight: 3,
                                             paddingLeft: 2,
                                         }}
