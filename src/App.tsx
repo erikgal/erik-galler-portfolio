@@ -1,13 +1,50 @@
 import React, { useEffect, useState } from 'react';
-import logo from './logo.svg';
+import { Typography } from '@mui/material';
+import styled from 'styled-components';
 import './App.css';
 import axios from 'axios';
+import AppBarComponent from './AppBar';
 
 interface Comment {
     id?: string;
     name: string;
     description: string;
 }
+const Container = styled.div`
+    width: 100vw;
+    height: 100vh;
+    background-color: #1d1d1d;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex: 1;
+    overflow: auto;
+`;
+
+const Bar = styled.div`
+    display: flex;
+    height: 8vh;
+`;
+
+const BarButtons = styled.div`
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    justify-content: flex-end;
+`;
+
+const Intro = styled.div`
+    display: flex;
+    height: 70vh;
+`;
+
+const IntroContainer = styled.div`
+    display: flex;
+    width: 60%;
+`;
+const ProfileContainer = styled.div`
+    display: flex;
+    width: 40%;
+`;
 
 function App() {
     const [comments, setComments] = useState<Comment[]>([]);
@@ -41,8 +78,19 @@ function App() {
         }
     };
     return (
-        <div className="App">
-            <header className="App-header">
+        <Container className="Container">
+            <AppBarComponent />
+            <Intro>
+                <IntroContainer>
+                    <Typography
+                        textAlign="center"
+                        sx={{ mr: 2, display: { xs: 'none', md: 'flex' }, color: '#ffffff' }}
+                    ></Typography>
+                </IntroContainer>
+                <ProfileContainer></ProfileContainer>
+            </Intro>
+            <Intro></Intro>
+            {/* <header className="App-header">
                 <img src={logo} className="App-logo" alt="logo" />
                 <p>
                     Edit <code>src/App.tsx</code> and save to reload.
@@ -59,8 +107,8 @@ function App() {
                 {comments.map((comment) => {
                     return <a key={comment.id}>{comment.name + ': ' + comment.description}</a>;
                 })}
-            </header>
-        </div>
+            </header> */}
+        </Container>
     );
 }
 
