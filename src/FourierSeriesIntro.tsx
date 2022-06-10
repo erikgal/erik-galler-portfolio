@@ -2,39 +2,29 @@ import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import AnimatedCharacter from './AnimatedCharacter';
 
-const animation = keyframes`
-0% { opacity: 0; transform: translateY(-100px) skewX(10deg) skewY(10deg) rotateZ(30deg); filter: blur(10px); }
-100% { opacity: 1; transform: translateY(0px) skewX(0deg) skewY(0deg) rotateZ(0deg); filter: blur(0px); }
-`;
-
 const IntroContainer = styled.div`
     display: flex;
     flex-direction: column;
-    width: 60%;
-    margin: 20px;
+    width: 100%;
     justify-content: center;
     align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
 `;
 
 const Line = styled.div`
     display: flex;
     flex-direction: row;
-    animation-name: ${animation};
-    animation-duration: 2s;
-    animation-fill-mode: forwards;
 `;
 
 const introText = [
-    "Hi, I'm Erik Galler,",
-    'student of geomatics',
-    'and artificial intelligence,',
-    'web developer,',
-    'CS enthusiast',
+    'I enjoy using Maths in programming to visualize complex concepts.',
+    'For example the beauty of the Fourier Series as visualized bellow:',
 ];
 
-const specialWords = ['artificial', 'intelligence,'];
+const specialWords = ['Maths', 'Fourier', 'Series'];
 
-const IntroText = () => {
+const FourierSeriesIntro = () => {
     return (
         <IntroContainer>
             {introText.map((text, i) => {
@@ -63,8 +53,8 @@ const IntroText = () => {
                                     <AnimatedCharacter
                                         key={j}
                                         character={char}
-                                        size={400}
-                                        color={specialChars[j] && char != ',' ? '#08fdd8' : 'white'}
+                                        size={270}
+                                        color={specialChars[j] ? '#08fdd8' : 'white'}
                                     />
                                 );
                             } else {
@@ -78,4 +68,4 @@ const IntroText = () => {
     );
 };
 
-export default IntroText;
+export default FourierSeriesIntro;

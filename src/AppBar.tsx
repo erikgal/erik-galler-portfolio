@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const Bar = styled.div`
     display: flex;
-    height: 8vh;
+    height: 5%;
 `;
 
 const BarButtons = styled.div`
@@ -30,7 +30,14 @@ const AppBarComponent = () => {
                         variant="h6"
                         noWrap
                         component="div"
-                        sx={{ mr: 2, display: { xs: 'none', md: 'flex' }, color: '#ffffff' }}
+                        sx={{
+                            ':hover': {
+                                color: '#08fdd8',
+                            },
+                            mr: 2,
+                            display: { xs: 'none', md: 'flex' },
+                            color: '#ffffff',
+                        }}
                         fontFamily={'-apple-system'}
                         fontSize={28}
                     >

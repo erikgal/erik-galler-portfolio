@@ -11,31 +11,37 @@ const animation = keyframes`
     100% { transform: scale(1,1)      }
 `;
 
-const Character = styled.span`
-    color: white;
-    font-size: 400%;
+const Character = styled.span<Character>`
+    //color: white;
+    color: ${({ color }) => color};
+    //font-size: 400%;
+    font-size: ${({ size = 400 }) => size}%;
     position: relative;
     &.animated {
-        color: #08fdd8;
         animation-name: ${animation};
         animation-duration: 2s;
         animation-fill-mode: forwards;
         animation-timing-function: cubic-bezier(0.28, 0.84, 0.42, 1);
+        color: #08fdd8;
     }
 `;
 
 interface Character {
-    character: string;
+    character?: string;
+    color?: string;
+    size?: number;
 }
 
-const AnimatedCharacter = ({ character }: Character) => {
+const AnimatedCharacter = ({ character, color, size }: Character) => {
     const [animated, setAnimated] = useState(false);
-
+    console.log(color);
     return (
         <Character
             className={animated ? 'animated' : ''}
             onMouseEnter={() => setAnimated(() => true)}
             onAnimationEnd={() => setAnimated(() => false)}
+            size={size ? size : 400}
+            color={color ? color : 'white'}
         >
             {character}
         </Character>
